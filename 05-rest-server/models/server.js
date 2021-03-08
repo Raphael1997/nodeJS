@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require('cors');
+const { dbConnection } = require("../db/config")
 
 
 class Server {
@@ -7,6 +8,8 @@ class Server {
         this.app = express();
         this.listen();
         this.pathUsers = "/api/users";
+
+        dbConnection();
 
         // middlewares
         this.middlewares();
