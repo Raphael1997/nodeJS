@@ -86,10 +86,12 @@ const deleteUsers = async (req, res) => {
     const id = req.params.id;
 
     const userDB = await User.findByIdAndUpdate(id, { status: false });
-
+    let authenticatedUser = req.usuario;
     userDB.save();
     res.json({
-        message: "User deactivated"
+        authenticatedUser,
+        deactivatedUser: userDB,
+        message: "User deactivated",
     });
 }
 
