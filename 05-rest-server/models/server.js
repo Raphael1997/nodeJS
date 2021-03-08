@@ -8,7 +8,7 @@ class Server {
         this.app = express();
         this.listen();
         this.pathUsers = "/api/users";
-        this.pathAuth = "/api/login";
+        this.pathAuth = "/api/auth";
 
         dbConnection();
 
