@@ -3,13 +3,13 @@ const adminRole = async (req, res, next) => {
 
     try {
 
-        if (!req.usuario) {
+        if (!req.user) {
             return res.status(500).json({
                 message: "You must validate the token first"
             });
         }
 
-        const { role } = req.usuario;
+        const { role } = req.user;
 
         if (role !== "ADMIN_ROLE") {
             return res.status(401).json({
@@ -19,7 +19,7 @@ const adminRole = async (req, res, next) => {
 
         next();
     } catch (error) {
-
+        console.log(error);
     }
 }
 

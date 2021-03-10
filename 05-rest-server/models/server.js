@@ -9,6 +9,9 @@ class Server {
         this.listen();
         this.pathUsers = "/api/users";
         this.pathAuth = "/api/auth";
+        this.pathCategories = "/api/categories";
+        this.pathProduct = "/api/product";
+        this.pathSearch = "/api/search";
 
         dbConnection();
 
@@ -36,6 +39,9 @@ class Server {
 
         this.app.use(this.pathUsers, require("../routes/user.routes"));
         this.app.use(this.pathAuth, require("../routes/auth.routes"));
+        this.app.use(this.pathCategories, require("../routes/categories.routes"));
+        this.app.use(this.pathProduct, require("../routes/product.routes"));
+        this.app.use(this.pathSearch, require("../routes/search.routes"));
     }
 
     listen() {

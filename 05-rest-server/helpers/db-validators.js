@@ -1,5 +1,7 @@
 const Role = require("../models/role");
-const User = require("../models/user.models")
+const User = require("../models/user.models");
+const Category = require("../models/category.model");
+const Product = require("../models/product.models");
 const { Error } = require("mongoose");
 
 const rolValidate = async (rol = "") => {
@@ -29,8 +31,27 @@ const findUserById = async (id) => {
     }
 }
 
+const findCategoryById = async (id) => {
+
+    const categoryDB = await Category.findById(id);
+
+    if (!categoryDB) {
+        throw new Error("Category not found")
+    }
+}
+
+const findProductById = async (id) => {
+
+    const productDB = await Product.findById(id);
+
+    if (!productDB) {
+        throw new Error("Product not found")
+    }
+}
 module.exports = {
     rolValidate,
     existEmail,
-    findUserById
+    findUserById,
+    findCategoryById,
+    findProductById
 }

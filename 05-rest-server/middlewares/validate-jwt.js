@@ -21,7 +21,7 @@ const validateJWT = async (req, res, next) => {
                 message: "Token invalid - invalid user"
             });
         }
-        req.usuario = usuario;
+        req.user = usuario;
         req.id = id;
 
         next();
