@@ -1,5 +1,6 @@
 node_modules
 
 .env
+05-rest-server/uploads/**
 
 01-multiply-app-console/tables/*.txt
