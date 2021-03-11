@@ -48,10 +48,26 @@ const findProductById = async (id) => {
         throw new Error("Product not found")
     }
 }
+
+const allowCollection = async (collection = "", collections = []) => {
+
+    const include = collections.includes(collection);
+
+    if (!include) {
+        const data = {
+            error: `The collection ${collection} is not allowed`,
+            allowCollection: collections
+        }
+        throw new Error(data.error + ". Allow collection => " + data.allowCollection);
+    }
+
+    return true;
+}
 module.exports = {
     rolValidate,
     existEmail,
     findUserById,
     findCategoryById,
-    findProductById
+    findProductById,
+    allowCollection
 }
